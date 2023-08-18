@@ -6,6 +6,9 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth, on
 // firestore cdn link
 import { getFirestore,doc, setDoc,serverTimestamp, collection, getDocs,getDoc,query, orderBy, limit, deleteDoc ,addDoc , updateDoc  } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 
+// storage cdn link
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-storage.js";
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyBX5rhb9-fVMOIAcPXZ6R689iMU-khNYio",
@@ -20,11 +23,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const storage = getStorage(app);
+
   
 export {
 app,
 auth,
 db,
+storage,
 createUserWithEmailAndPassword,
 signInWithEmailAndPassword,
 doc,
@@ -39,7 +45,10 @@ limit,
 deleteDoc,
 addDoc,
 updateDoc,
-onAuthStateChanged
+onAuthStateChanged,
+ref,
+uploadBytesResumable,
+getDownloadURL 
 };
 
 
@@ -144,3 +153,43 @@ onAuthStateChanged
 //       // ...
 //     }
 //   });
+
+
+
+
+// code to upload files on storage
+// /function fooone() {
+
+//  var imagefile = document.querySelector('.fileupload')   
+// const storageRef = ref(storage, `image/${imagefile.files[0].name}`);
+// console.log(imagefile.files[0].name);
+
+// const uploadTask = uploadBytesResumable(storageRef, imagefile.files[0]);
+
+// uploadTask.on('state_changed', 
+//   (snapshot) => {
+    
+//     const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+//     // console.log('Upload is ' + progress + '% done');
+//     switch (snapshot.state) {
+//       case 'paused':
+//         console.log('Upload is paused');
+//         break;
+//       case 'running':
+//         console.log('Upload is running');
+//         break;
+//     }
+//   }, 
+//   (error) => {
+//     console.log(error);
+//   }, 
+//   () => {
+//     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+//       console.log('File available at', downloadURL);
+//     });
+//   }
+// );
+// }
+
+// var foobtn = document.querySelector('#foobtn')
+// foobtn.addEventListener('click', fooone);

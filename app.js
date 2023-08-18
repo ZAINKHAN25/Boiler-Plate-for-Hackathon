@@ -1,4 +1,12 @@
-import { auth , createUserWithEmailAndPassword, signInWithEmailAndPassword} from './firebaseConfig.js'
+import {
+    auth,
+    storage,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    ref,
+    uploadBytesResumable,
+    getDownloadURL 
+} from './firebaseConfig.js'
 
 const signupemail = document.querySelector('#signupemail')
 const signuppassword = document.querySelector('#signuppassword')
@@ -50,3 +58,5 @@ try {
 } catch (error) {
     console.log(error.message);
 }
+
+
