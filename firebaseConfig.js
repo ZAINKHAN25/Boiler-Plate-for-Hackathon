@@ -1,10 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
 
 // auth cdn link
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth, onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth, onAuthStateChanged, signOut  } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
 
 // firestore cdn link
-import { getFirestore,doc, setDoc,serverTimestamp, collection, getDocs,getDoc,query, orderBy, limit, deleteDoc ,addDoc , updateDoc  } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+import { getFirestore,doc, setDoc,serverTimestamp, collection, getDocs,getDoc,query, orderBy, limit, deleteDoc ,addDoc , updateDoc   } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 
 // storage cdn link
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-storage.js";
@@ -48,7 +48,8 @@ updateDoc,
 onAuthStateChanged,
 ref,
 uploadBytesResumable,
-getDownloadURL 
+getDownloadURL,
+signOut
 };
 
 
@@ -62,7 +63,7 @@ getDownloadURL
 //     console.log("Document written with ID: ", docRef.id);
 //   } catch (e) {
 //     console.error("Error adding document: ", e);
-//   }
+//   }f
   
 
 
@@ -193,3 +194,13 @@ getDownloadURL
 
 // var foobtn = document.querySelector('#foobtn')
 // foobtn.addEventListener('click', fooone);
+
+
+
+
+// code to sign out the person
+// signOut(auth).then(() => {
+//   // Sign-out successful.
+// }).catch((error) => {
+//   // An error happened.
+// });

@@ -1,11 +1,7 @@
 import {
-    auth,
-    storage,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    ref,
-    uploadBytesResumable,
-    getDownloadURL 
+auth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword
 } from './firebaseConfig.js'
 
 const signupemail = document.querySelector('#signupemail')
